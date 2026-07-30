@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BRAMAN Autos — Compre con tranquilidad y en confianza. Vehículos usados y 0km en Buenos Aires.">
+<title>BRAMAN Autos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; color:#1a1a1a; background:#f5f5f3; -webkit-font-smoothing:antialiased; }
+a { text-decoration:none; color:inherit; }
+
+/* LOGO */
+.logo { display:inline-flex; flex-direction:column; align-items:center; cursor:pointer; } .hero-logo { align-self:center; }
+.logo .lb { font-weight:700; letter-spacing:5px; text-transform:uppercase; line-height:1; }
+.logo .ll { height:2px; background:currentColor; width:100%; margin:4px 0; }
+.logo .ls { font-weight:700; letter-spacing:4px; text-transform:uppercase; line-height:1; }
+
+/* NAV */
+nav {
+  background:#0a0a0a;
+  height:70px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 3rem; position:sticky; top:0; z-index:100;
+}
+.nav-logo .lb { color:#fff; font-size:20px; }
+.nav-logo .ll { background:#fff; }
+.nav-logo .ls { color:#fff; font-size:14px; }
+.nav-links { display:flex; gap:2rem; }
+.nav-links a { font-size:13px; letter-spacing:2px; color:#aaa; text-transform:uppercase; transition:color .2s; }
+.nav-links a:hover { color:#fff; }
+.nav-social { display:flex; gap:12px; align-items:center; }
+.nav-social a { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; transition:opacity .2s; }
+.nav-social a:hover { opacity:0.8; }
+.nav-wa-btn {
+  display:flex; align-items:center; gap:6px;
+  background:#25D366; color:#fff;
+  border:none; padding:7px 14px;
+  font-size:11px; font-weight:600; letter-spacing:1px;
+  cursor:pointer; border-radius:4px; font-family:'Inter',sans-serif;
+}
+
+/* HERO */
+.hero {
+  background:#0a0a0a;
+  padding:7rem 2rem 6rem;
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:1.5rem;
+  border-bottom:3px solid #222;
+}
+.hero-logo .lb { color:#fff; font-size:64px; letter-spacing:8px; margin-left:-10px; }
+.hero-logo .ll { background:#fff; margin:10px 0; margin-left:0; }
+.hero-logo .ls { color:#fff; font-size:30px; letter-spacing:8px; margin-left:-10px; }
+.hero-welcome { color:#ccc; font-size:13px; letter-spacing:6px; text-transform:uppercase; margin-bottom:1rem; margin-left:-10px; }
+.hero-claim { margin-top:0.5rem;
+  font-family:'Inter',sans-serif;
+  font-style:normal; font-size:28px; color:#fff;
+  font-weight:400; line-height:1.4; max-width:500px;
+}
+.hero-desc { color:#777; font-size:14px; line-height:1.9; max-width:460px; }
+.hero-highlight{
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid #2a2a2a; background:#141414;
+  color:#e8e8e8; font-size:13.5px; font-weight:500; line-height:1.5;
+  padding:12px 22px; border-radius:100px; max-width:480px;
+}
+.hero-highlight svg{ flex-shrink:0; }
+@media (max-width:768px){
+  .hero-highlight{ font-size:12.5px; padding:12px 18px; text-align:left; border-radius:16px; }
+}
+.hero-btns { display:flex; gap:12px; margin-top:1rem; }
+.btn-primary {
+  background:#fff; color:#0a0a0a;
+  border:none; padding:14px 32px;
+  font-size:12px; font-weight:600; letter-spacing:2px;
+  text-transform:uppercase; cursor:pointer;
+  font-family:'Inter',sans-serif; transition:background .2s;
+}
+.btn-primary:hover { opacity:0.6; }
+.btn-secondary {
+  background:transparent; color:#fff;
+  border:1px solid #444; padding:14px 32px;
+  font-size:12px; letter-spacing:2px;
+  text-transform:uppercase; cursor:pointer;
+  font-family:'Inter',sans-serif; transition:border-color .2s;
+  display:flex; align-items:center; gap:8px;
+}
+.btn-secondary:hover { opacity:0.6; }
+
+/* STATS */
+.stats { background:#fff; display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid #e0e0e0; }
+.si { padding:2.5rem 2rem; text-align:center; border-right:1px solid #e0e0e0; }
+.si:last-child { border-right:none; }
+.sn { font-family:'Inter',sans-serif; font-size:40px; color:#777; line-height:1; margin-bottom:8px; }
+.sl { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#999; }
+
+/* SECCIONES */
+.sec { padding:6rem 3rem; max-width:1200px; margin:0 auto; }
+.sec-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:#999; margin-bottom:8px; }
+.sec-title {
+  font-family:'Inter',sans-serif;
+  font-size:36px; color:#0a0a0a; font-weight:400;
+  margin-bottom:2.5rem; padding-bottom:1.5rem;
+  border-bottom:2px solid #0a0a0a; line-height:1.2;
+}
+
+/* FILTROS */
+.filters { display:flex; gap:8px; margin-bottom:2rem; flex-wrap:wrap; }
+.filter-btn {
+  font-family:'Inter',sans-serif;
+  padding:9px 22px; border:1px solid #0a0a0a;
+  font-size:12px; letter-spacing:1px; text-transform:uppercase;
+  cursor:pointer; background:#0a0a0a; color:#fff;
+  transition:all .2s;
+}
+.filter-btn:hover { background:#2a2a2a; border-color:#2a2a2a; }
+.filter-btn.active { background:#fff; color:#0a0a0a; border-color:#0a0a0a; }
+
+/* GRILLA */
+.cars-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:2px; background:#ccc; margin-bottom:3rem;
+}
+.car-card {
+  background:#fff; display:flex; flex-direction:column;
+  transition:transform .3s, box-shadow .3s;
+}
+.car-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.1); }
+.car-card.hidden { display:none; }
+
+.car-thumb {
+  width:100%; background:#f5f5f3;
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.car-thumb img { width:100%; height:auto; object-fit:contain; max-height:240px; display:block; }
+
+.badge {
+  position:absolute; top:12px; left:12px;
+  font-size:10px; letter-spacing:1.5px;
+  padding:5px 12px; font-weight:600; text-transform:uppercase;
+}
+.badge.okm { background:#0a0a0a; color:#fff; }
+.badge.res { background:#888; color:#fff; }
+
+.car-info { padding:20px 22px; flex:1; display:flex; flex-direction:column; gap:6px; border-top:1px solid #eee; }
+.car-name { font-size:15px; font-weight:600; color:#0a0a0a; letter-spacing:0.5px; }
+.car-ver { font-size:13px; color:#666; }
+.car-meta { font-size:12px; color:#aaa; letter-spacing:1px; margin-bottom:4px; }
+.car-price { font-family:'Inter',sans-serif; font-size:24px; color:#0a0a0a; margin:4px 0 12px; }
+.ml-btn {
+  display:flex; align-items:center; justify-content:center; gap:6px;
+  width:100%; padding:11px;
+  background:#0a0a0a; color:#fff;
+  border:none; font-size:12px; font-weight:500;
+  letter-spacing:1px; cursor:pointer;
+  font-family:'Inter',sans-serif; transition:background .2s;
+  text-align:center;
+}
+.ml-btn:hover { background:#333; }
+.res-btn {
+  display:flex; align-items:center; justify-content:center;
+  width:100%; padding:11px;
+  background:#f0f0f0; color:#aaa;
+  font-size:12px; letter-spacing:1px;
+}
+
+/* ML BANNER */
+.ml-banner {
+  background:#0a0a0a; padding:2.5rem 3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:2rem;
+}
+.ml-banner h3 { font-family:'Inter',sans-serif; font-size:22px; color:#fff; font-weight:400; margin-bottom:6px; }
+.ml-banner p { font-size:13px; color:#888; }
+.ml-banner a {
+  display:inline-flex; align-items:center; gap:8px;
+  background:#FFE600; color:#222;
+  padding:13px 24px; font-size:12px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  white-space:nowrap; transition:opacity .2s;
+  font-family:'Inter',sans-serif;
+}
+.ml-banner a:hover { opacity:.9; }
+
+/* NOSOTROS */
+.nos-bg { background:#fff; }
+.nos-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; }
+.nos-quote {
+  font-family:'Inter',sans-serif;
+  font-size:26px; font-style:normal; font-weight:400;
+  color:#0a0a0a; line-height:1.6;
+  border-left:3px solid #0a0a0a;
+  padding-left:1.5rem; margin-bottom:2rem;
+}
+.nos-text { font-size:14px; color:#555; line-height:2; }
+.feat { display:flex; flex-direction:column; }
+.feat-item {
+  display:flex; gap:1.5rem; align-items:flex-start;
+  padding:1.4rem 0; border-bottom:1px solid #eee;
+}
+.feat-item:first-child { border-top:1px solid #eee; }
+.feat-num { font-family:'Inter',sans-serif; font-size:14px; color:#ccc; flex-shrink:0; width:22px; margin-top:1px; }
+.feat-item h4 { font-size:13px; font-weight:600; color:#0a0a0a; margin-bottom:4px; letter-spacing:0.5px; }
+.feat-item p { font-size:13px; color:#777; line-height:1.7; }
+
+/* CONTACTO */
+.cstrip { background:#0a0a0a; padding:6rem 3rem; text-align:center; }
+.cstrip-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:#555; margin-bottom:12px; }
+.cstrip h2 { font-family:'Inter',sans-serif; font-size:40px; color:#fff; font-weight:400; font-style:normal; margin-bottom:12px; }
+.cstrip-sub { font-size:13px; color:#666; letter-spacing:2px; text-transform:uppercase; margin-bottom:3.5rem; }
+.ccards { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; max-width:860px; margin:0 auto; background:#222; }
+.ccard { background:#111; padding:2.5rem 2rem; text-align:center; }
+.ccard-icon { margin-bottom:14px; display:flex; align-items:center; justify-content:center; }
+.ccard h3 { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#666; margin-bottom:10px; }
+.ccard p { font-size:13px; color:#888; line-height:1.8; margin-bottom:20px; }
+.ccard a {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 22px; font-size:11px; font-weight:600;
+  letter-spacing:1px; text-transform:uppercase;
+  font-family:'Inter',sans-serif; border-radius:3px;
+}
+.cwa { background:#25D366; color:#fff; }
+.cig {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color:#fff;
+}
+.cem { color:#aaa; border:1px solid #333; }
+
+/* FAQ */
+.faq-bg { background:#f5f5f3; }
+.faq-wrap { max-width:760px; }
+.faq-item { border-bottom:1px solid #ddd; padding:1.5rem 0; cursor:pointer; }
+.faq-q { display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:500; color:#1a1a1a; }
+.faq-icon { font-size:22px; color:#0a0a0a; transition:transform .2s; flex-shrink:0; font-weight:300; }
+.faq-a { font-size:14px; color:#666; margin-top:12px; line-height:2; display:none; }
+.faq-a.open { display:block; }
+
+/* FOOTER */
+footer { background:#0a0a0a; padding:4rem 3rem; display:flex; flex-direction:column; align-items:center; gap:2rem; }
+.footer-logo .lb { color:#fff; font-size:17px; letter-spacing:5px; }
+.footer-logo .ll { background:#fff; }
+.footer-logo .ls { color:#fff; font-size:12px; letter-spacing:4px; }
+.flinks { display:flex; gap:2.5rem; }
+.flinks a { font-size:11px; letter-spacing:2px; color:#555; text-transform:uppercase; transition:color .2s; }
+.flinks a:hover { color:#fff; }
+.fsocial { display:flex; gap:14px; align-items:center; }
+.fsocial a { display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; transition:opacity .2s; }
+.fsocial a:hover { opacity:0.8; }
+.finfo { display:flex; gap:2.5rem; flex-wrap:wrap; justify-content:center; }
+.finfo span { font-size:12px; color:#555; }
+.fcopy { font-size:11px; color:#444; letter-spacing:1px; text-transform:uppercase; }
+
+/* DIVIDER */
+.divider { border:none; border-top:1px solid #e0e0e0; max-width:1200px; margin:0 auto; }
+
+@media(max-width:768px){
+  nav { padding:0 1.5rem; }
+  .nav-links { display:none; }
+  .hero { padding:5rem 1.5rem 4rem; }
+  .hero-logo .lb { font-size:40px; letter-spacing:6px; }
+  .hero-logo .ls { font-size:20px; letter-spacing:5px; }
+  .hero-claim { margin-top:0.5rem; font-size:22px; }
+  .hero-btns { flex-direction:column; width:100%; max-width:280px; }
+  .stats { grid-template-columns:1fr 1fr; }
+  .si { border-right:none; border-bottom:1px solid #e0e0e0; }
+  .sec { padding:4rem 1.5rem; }
+  .nos-grid { grid-template-columns:1fr; gap:3rem; }
+  .ccards { grid-template-columns:1fr; }
+  .finfo { flex-direction:column; align-items:center; gap:1rem; }
+  .flinks { gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+  .ml-banner { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG icons Instagram y WhatsApp -->
+<svg style="display:none">
+  <symbol id="ico-wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+  <symbol id="ico-ig" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+  </symbol>
+</svg>
+
+<nav>
+  <div class="logo nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span class="lb">BRAMAN</span>
+    <div class="ll"></div>
+    <span class="ls">Autos</span>
+  </div>
+  <div class="nav-links" style="position:absolute;left:50%;transform:translateX(-50%);">
+    <a href="#autos">Veh&iacute;culos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#faq">Dudas frecuentes</a>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;">
+    <a href="https://www.instagram.com/bramanautos_arg/" target="_blank" style="display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">
+      <svg width="14" height="14"><use href="#ico-ig"/></svg>
+    </a>
+    <button class="nav-wa-btn" onclick="window.open('https://wa.me/5491138861797','_blank')">
+      <svg width="14" height="14" fill="#fff"><use href="#ico-wa"/></svg>
+      WhatsApp
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-welcome">Bienvenidos a</p>
+  <div class="logo hero-logo">
+    <span class="lb">BRAMAN</span>
+    <div class="ll"></div>
+    <span class="ls">Autos</span>
+  </div>
+  <p class="hero-claim">Compre con tranquilidad y en confianza.</p>
+  <p class="hero-desc">Venta y consignaci&oacute;n de veh&iacute;culos usados y 0&nbsp;km.</p>
+  <p class="hero-highlight">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    Si publicamos un veh&iacute;culo es porque est&aacute; muy bien seleccionado, revisado exhaustivamente y con toda la documentaci&oacute;n chequeada.
+  </p>
+  <p class="hero-desc">Una empresa formada por gente id&oacute;nea con m&aacute;s de 25 a&ntilde;os de experiencia en el rubro automotor.</p>
+
+</section>
+
+<div class="stats">
+  <div class="si"><div class="sn">25</div><div class="sl">A&ntilde;os nos avalan</div></div>
+  <div class="si"><div class="sn">19</div><div class="sl">Veh&iacute;culos en stock</div></div>
+  <div class="si"><div class="sn" style="font-size:36px;filter:grayscale(100%);color:#777;">🤝</div><div class="sl">Transacciones seguras y garantizadas</div></div>
+  <div class="si"><div class="sn" style="font-size:36px;filter:grayscale(100%);color:#777;">📄</div><div class="sl">Documentaci&oacute;n completa verificable, lista para transferir o patentar r&aacute;pidamente</div></div>
+</div>
+
+<section id="autos" class="sec">
+  <p class="sec-label">Cat&aacute;logo</p>
+  <h2 class="sec-title">Veh&iacute;culos disponibles</h2>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filter('todos',this)">Todos</button>
+    <button class="filter-btn" onclick="filter('usado',this)">Usados</button>
+    <button class="filter-btn" onclick="filter('0km',this)">0 km</button>
+    <button class="filter-btn" onclick="filter('reservado',this)">Reservados</button>
+    <button class="filter-btn" onclick="filter('performance',this)" style="letter-spacing:2px;font-weight:700;">⚡ High Performance</button>
+  </div>
+  <div class="cars-grid" id="carsGrid">
+    <p style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:#999;">Cargando catálogo…</p>
+  </div>
+  <div class="ml-banner">
+    <div>
+      <h3>Stock completo en Mercado Libre</h3>
+      <p>Todas nuestras publicaciones actualizadas en tiempo real.</p>
+    </div>
+    <a href="https://www.mercadolibre.com.ar/pampa/profile#menu-user" target="_blank">Ver todas las publicaciones &rarr;</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="nosotros" class="sec nos-bg">
+  <p class="sec-label">Qui&eacute;nes somos</p>
+  <h2 class="sec-title">Trayectoria y confianza</h2>
+  <div class="nos-grid">
+    <div>
+      <p class="nos-quote">&ldquo;Compre con tranquilidad y en confianza.&rdquo;</p>
+      <p class="nos-text">Somos BRAMAN Autos, una empresa formada por gente id&oacute;nea con m&aacute;s de 25 a&ntilde;os de experiencia en el rubro automotor. Comercializamos veh&iacute;culos usados y 0&nbsp;km, aceptamos permutas mayor y menos valor, tambi&eacute;n ofrecemos financiaci&oacute;n.<br><br>Cada operaci&oacute;n es transparente, segura y sin sorpresas. Cada veh&iacute;culo pasa por una revisi&oacute;n t&eacute;cnica y documental completa antes de ser ofrecido.<br><br>Nos encontr&aacute;s en Av. Triunvirato 3961, Villa Urquiza y Torres al R&iacute;o, Vicente L&oacute;pez.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-item"><span class="feat-num">01</span><div><h4>25 a&ntilde;os de experiencia</h4><p>Gente id&oacute;nea que conoce el mercado automotor en profundidad</p></div></div>
+      <div class="feat-item"><span class="feat-num">02</span><div><h4>Usados y 0 km</h4><p>Amplio stock de veh&iacute;culos usados y unidades 0 kil&oacute;metro</p></div></div>
+      <div class="feat-item"><span class="feat-num">03</span><div><h4>Aceptamos permutas</h4><p>Tomamos tu auto como parte de pago</p></div></div>
+      <div class="feat-item"><span class="feat-num">04</span><div><h4>Documentaci&oacute;n verificada</h4><p>Informe de dominio, libre deuda y verificaci&oacute;n policial</p></div></div>
+      <div class="feat-item"><span class="feat-num">05</span><div><h4>Garant&iacute;a mec&aacute;nica</h4><p>90 d&iacute;as sobre motor y caja en todos los veh&iacute;culos</p></div></div>
+    </div>
+</section>
+
+<section id="contacto" class="cstrip">
+  <p class="cstrip-label">Cont&aacute;cto</p>
+  <h2>&iquest;Encontraste tu pr&oacute;ximo veh&iacute;culo?</h2>
+  <p class="cstrip-sub">Escrib&iacute;nos &mdash; respondemos en minutos</p>
+  <div class="ccards">
+    <div class="ccard">
+      <div class="ccard-icon">
+        <svg width="32" height="32" fill="#25D366"><use href="#ico-wa"/></svg>
+      </div>
+      <h3>WhatsApp</h3>
+      <p>+54 9 11 3886-1797<br>Respondemos en minutos</p>
+      <a class="cwa" href="https://wa.me/5491138861797" target="_blank">
+        <svg width="16" height="16" fill="#fff"><use href="#ico-wa"/></svg> Escribir
+      </a>
+    </div>
+    <div class="ccard">
+      <div class="ccard-icon" style="font-size:30px; font-weight:700; color:#fff; font-family:'Inter',sans-serif;">@</div>
+      <h3>Email</h3>
+      <p>info.bramanautos@gmail.com</p>
+      <a class="cem" href="mailto:info.bramanautos@gmail.com">Enviar</a>
+    </div>
+    <div class="ccard">
+      <div class="ccard-icon">
+        <svg width="32" height="32" style="fill:url(#ig-grad)">
+          <defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f09433"/>
+            <stop offset="25%" style="stop-color:#e6683c"/>
+            <stop offset="50%" style="stop-color:#dc2743"/>
+            <stop offset="75%" style="stop-color:#cc2366"/>
+            <stop offset="100%" style="stop-color:#bc1888"/>
+          </linearGradient></defs>
+          <use href="#ico-ig"/>
+        </svg>
+      </div>
+      <h3>Instagram</h3>
+      <p>@bramanautos_arg<br>Seguinos para ver novedades</p>
+      <a class="cig" href="https://www.instagram.com/bramanautos_arg/" target="_blank">
+        <svg width="16" height="16" fill="#fff"><use href="#ico-ig"/></svg> Seguir
+      </a>
+    </div>
+</section>
+
+<section id="faq" class="sec faq-bg">
+  <p class="sec-label">Dudas frecuentes</p>
+  <h2 class="sec-title">Todo lo que necesit&aacute;s saber</h2>
+  <div class="faq-wrap">
+    <div class="faq-item" onclick="tog(0)"><div class="faq-q"><span>&iquest;Venden veh&iacute;culos 0 km?</span><span class="faq-icon" id="fi0">+</span></div><div class="faq-a" id="fa0">S&iacute;, contamos con unidades 0 kil&oacute;metro. Consult&aacute;nos por disponibilidad y modelos.</div></div>
+    <div class="faq-item" onclick="tog(1)"><div class="faq-q"><span>&iquest;Aceptan permutas?</span><span class="faq-icon" id="fi1">+</span></div><div class="faq-a" id="fa1">S&iacute;, tomamos tu auto como parte de pago. Contact&aacute;nos con los datos de tu veh&iacute;culo.</div></div>
+    <div class="faq-item" onclick="tog(2)"><div class="faq-q"><span>&iquest;Los autos usados tienen garant&iacute;a?</span><span class="faq-icon" id="fi2">+</span></div><div class="faq-a" id="fa2">S&iacute;, todos cuentan con garant&iacute;a mec&aacute;nica de 90 d&iacute;as sobre motor y caja.</div></div>
+    <div class="faq-item" onclick="tog(3)"><div class="faq-q"><span>&iquest;Se puede financiar?</span><span class="faq-icon" id="fi3">+</span></div><div class="faq-a" id="fa3">Trabajamos con cr&eacute;ditos bancarios y financieras. Tambi&eacute;n tarjeta de cr&eacute;dito en cuotas.</div></div>
+    <div class="faq-item" onclick="tog(4)"><div class="faq-q"><span>&iquest;C&oacute;mo s&eacute; que la documentaci&oacute;n est&aacute; en orden?</span><span class="faq-icon" id="fi4">+</span></div><div class="faq-a" id="fa4">Verificamos informe de dominio, libre deuda y verificaci&oacute;n policial antes de publicar cada unidad.</div></div>
+    <div class="faq-item" onclick="tog(5)"><div class="faq-q"><span>&iquest;D&oacute;nde est&aacute;n ubicados?</span><span class="faq-icon" id="fi5">+</span></div><div class="faq-a" id="fa5">Av. Triunvirato 3961, Villa Urquiza y Torres al R&iacute;o, Vicente L&oacute;pez. Coordin&aacute; tu visita por WhatsApp.</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo footer-logo">
+    <span class="lb">BRAMAN</span>
+    <div class="ll"></div>
+    <span class="ls">Autos</span>
+  </div>
+  <div class="flinks">
+    <a href="#autos">Veh&iacute;culos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#faq">Dudas frecuentes</a>
+  </div>
+  <div class="fsocial">
+    <a href="https://www.instagram.com/bramanautos_arg/" target="_blank" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">
+      <svg width="18" height="18" fill="#fff"><use href="#ico-ig"/></svg>
+    </a>
+    <a href="https://wa.me/5491138861797" target="_blank" style="background:#25D366;color:#fff;">
+      <svg width="18" height="18" fill="#fff"><use href="#ico-wa"/></svg>
+    </a>
+  </div>
+  <div class="finfo">
+    <span>+54 9 11 3886-1797</span>
+    <span>info.bramanautos@gmail.com</span>
+    <span>Villa Urquiza &middot; Vicente L&oacute;pez</span>
+  </div>
+  <p class="fcopy">&copy; 2025 BRAMAN AUTOS &mdash; Buenos Aires</p>
+</footer>
+
+<script>
+function filter(tipo,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.car-card').forEach(c=>{
+    if(tipo==='todos') c.classList.remove('hidden');
+    else c.classList.toggle('hidden',c.dataset.tipo!==tipo);
+  });
+}
+function tog(i){
+  const a=document.getElementById('fa'+i),ic=document.getElementById('fi'+i);
+  const open=a.classList.toggle('open');
+  ic.textContent=open?'−':'+';
+}
+</script>
+
+<script>
+async function cargarCatalogo(){
+  const grid = document.getElementById('carsGrid');
+  try{
+    const res = await fetch('cars-data.json', {cache:'no-store'});
+    if(!res.ok) throw new Error('No se encontró cars-data.json');
+    const autosML = await res.json();
+
+    let autosManual = [];
+    try{
+      const resManual = await fetch('manual-cars.json', {cache:'no-store'});
+      if(resManual.ok) autosManual = await resManual.json();
+    }catch(_e){ }
+
+    const autos = [...autosML, ...autosManual];
+    if(!autos.length){
+      grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:#999;">Todavía no hay vehículos cargados.</p>';
+      return;
+    }
+    grid.innerHTML = autos.map(tarjetaHTML).join('');
+  }catch(err){
+    console.error(err);
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:#999;">No pudimos cargar el catálogo. Probá recargar la página.</p>';
+  }
+  const primerFiltro = document.querySelector('.filter-btn');
+  if(primerFiltro) filter('todos', primerFiltro);
+}
+
+function tarjetaHTML(a){
+  const esReservado = a.estado === 'reservado';
+  const es0km = a.tipo === '0km';
+  const dataTipo = esReservado ? 'reservado' : a.tipo;
+
+  let badge = '';
+  if(esReservado) badge = '<span class="badge res">Reservado</span>';
+  else if(es0km) badge = '<span class="badge okm">0 km</span>';
+
+  const accion = esReservado
+    ? '<div class="res-btn">🔒 Reservado</div>'
+    : (a.link ? `<a class="ml-btn" href="${a.link}" target="_blank">Ver en Mercado Libre &rarr;</a>` : '');
+
+  return `<div class="car-card" data-tipo="${dataTipo}">
+      <div class="car-thumb">${badge}<img src="${a.imagen}" alt="${escapeHTML(a.alt || a.nombre)}" loading="lazy"></div>
+      <div class="car-info">
+        <div class="car-name">${escapeHTML(a.nombre)}</div>
+        <div class="car-ver">${escapeHTML(a.version || '')}</div>
+        <div class="car-meta">${escapeHTML(a.meta || '')}</div>
+        <div class="car-price">${escapeHTML(a.precio || 'Consultar')}</div>
+        ${accion}
+      </div>
+    </div>`;
+}
+
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+cargarCatalogo();
+</script>
+</body>
+</html>
