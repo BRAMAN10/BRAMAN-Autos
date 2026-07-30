@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BRAMAN Autos — Compre con tranquilidad y en confianza. Vehículos usados y 0km en Buenos Aires.">
+<title>BRAMAN Autos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+:root{
+  --ink:#14171c;
+  --ink-soft:#3f434b;
+  --paper:#f7f6f2;
+  --surface:#ffffff;
+  --line:#e3e1da;
+  --line-strong:#d1cec5;
+  --accent:#2b5d4c;
+  --accent-dark:#1e453a;
+  --accent-tint:#e8efec;
+  --muted:#71757c;
+  --radius-s:8px;
+  --radius-m:14px;
+}
+
+body{
+  font-family:'Manrope',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+a{ text-decoration:none; color:inherit; }
+img{ max-width:100%; display:block; }
+button{ font-family:inherit; }
+
+/* WORDMARK / LOGO */
+.logo{ display:inline-flex; flex-direction:column; align-items:center; cursor:pointer; font-family:'Space Grotesk',sans-serif; }
+.logo .lb{ font-weight:700; letter-spacing:.07em; text-transform:uppercase; line-height:1; }
+.logo .ll{ width:34px; height:2px; background:var(--accent); margin:9px 0; border-radius:2px; }
+.logo .ls{ font-weight:500; letter-spacing:.16em; text-transform:uppercase; line-height:1; color:var(--muted); }
+
+/* NAV */
+nav{
+  position:sticky; top:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  height:74px; padding:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(247,246,242,.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo .lb{ font-size:18px; color:var(--ink); }
+.nav-logo .ll{ width:26px; margin:6px 0; }
+.nav-logo .ls{ font-size:10.5px; }
+.nav-links{ display:flex; gap:2.25rem; position:absolute; left:50%; transform:translateX(-50%); }
+.nav-links a{ font-size:13px; font-weight:600; color:var(--ink-soft); letter-spacing:.01em; transition:color .2s; }
+.nav-links a:hover{ color:var(--accent); }
+.nav-actions{ display:flex; align-items:center; gap:14px; }
+.icon-btn{
+  width:34px; height:34px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; transition:opacity .2s;
+}
+.icon-btn:hover{ opacity:.8; }
+.nav-wa-btn{
+  display:flex; align-items:center; gap:8px;
+  background:var(--accent); color:#fff; border:none;
+  padding:9px 18px; border-radius:100px;
+  font-weight:700; font-size:12.5px; letter-spacing:.01em;
+  cursor:pointer; transition:background .2s;
+}
+.nav-wa-btn:hover{ background:var(--accent-dark); }
+
+/* HERO */
+.hero{
+  padding:clamp(4.5rem,10vw,7.5rem) 1.5rem clamp(3.5rem,8vw,5rem);
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:1.5rem;
+}
+.hero-eyebrow{
+  display:flex; align-items:center; gap:12px;
+  font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent);
+}
+.hero-eyebrow::before, .hero-eyebrow::after{ content:''; width:26px; height:1px; background:var(--accent); opacity:.5; }
+.hero-logo .lb{ font-size:clamp(2.4rem,7vw,4rem); letter-spacing:.04em; color:var(--ink); }
+.hero-logo .ll{ width:60px; margin:16px 0; }
+.hero-logo .ls{ font-size:clamp(1rem,2.4vw,1.3rem); letter-spacing:.16em; }
+.hero-claim{
+  font-family:'Space Grotesk',sans-serif; font-weight:600;
+  font-size:clamp(1.2rem,2.6vw,1.55rem); color:var(--ink-soft);
+  max-width:520px; line-height:1.4;
+}
+.hero-desc{ font-size:15px; color:var(--muted); max-width:480px; line-height:1.85; }
+.hero-btns{ display:flex; gap:14px; margin-top:.5rem; flex-wrap:wrap; justify-content:center; }
+.btn-primary{
+  background:var(--ink); color:#fff; border:none;
+  padding:15px 30px; border-radius:100px;
+  font-weight:700; font-size:13.5px; letter-spacing:.02em;
+  cursor:pointer; transition:background .2s;
+}
+.btn-primary:hover{ background:var(--accent); }
+.btn-secondary{
+  background:transparent; color:var(--ink); border:1px solid var(--line-strong);
+  padding:14px 28px; border-radius:100px;
+  font-weight:700; font-size:13.5px; letter-spacing:.01em;
+  display:inline-flex; align-items:center; gap:8px;
+  cursor:pointer; transition:.2s;
+}
+.btn-secondary:hover{ border-color:var(--accent); color:var(--accent); }
+
+/* STATS */
+.stats{
+  max-width:1100px; margin:0 auto; padding:0 1.5rem clamp(3rem,7vw,4.5rem);
+  display:grid; grid-template-columns:repeat(4,1fr);
+}
+.si{ padding:0 1.25rem; text-align:center; border-left:1px solid var(--line); }
+.si:first-child{ border-left:none; }
+.sn{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:clamp(1.7rem,3.2vw,2.3rem); color:var(--ink); }
+.sl{ margin-top:8px; font-size:12px; color:var(--muted); line-height:1.55; letter-spacing:.01em; }
+
+/* SECTIONS */
+.sec{ padding:clamp(3.5rem,8vw,6rem) clamp(1.25rem,4vw,3rem); max-width:1200px; margin:0 auto; }
+.sec-eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:.75rem;
+}
+.sec-title{
+  font-family:'Space Grotesk',sans-serif; font-weight:700;
+  font-size:clamp(1.75rem,4vw,2.4rem); letter-spacing:-.01em; color:var(--ink);
+  margin-bottom:2.5rem;
+}
+.nos-bg{ background:var(--surface); }
+.faq-bg{ background:var(--paper); }
+
+/* FILTERS */
+.filters{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:2.5rem; }
+.filter-btn{
+  font-weight:700; font-size:12.5px; letter-spacing:.02em;
+  padding:10px 20px; border-radius:100px; border:1px solid var(--line-strong);
+  background:var(--surface); color:var(--ink-soft); cursor:pointer; transition:.2s;
+}
+.filter-btn:hover{ border-color:var(--accent); color:var(--accent); }
+.filter-btn.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
+
+/* CATALOG GRID */
+.cars-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.5rem; margin-bottom:3rem;
+}
+.car-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-m);
+  overflow:hidden; display:flex; flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.car-card:hover{ transform:translateY(-3px); box-shadow:0 18px 34px -14px rgba(20,23,28,.16); border-color:var(--line-strong); }
+.car-card.hidden{ display:none; }
+.car-thumb{
+  position:relative; background:var(--paper);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.car-thumb img{ width:100%; height:auto; object-fit:contain; max-height:220px; display:block; }
+.badge{
+  position:absolute; top:12px; left:12px;
+  font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; font-weight:600;
+  padding:5px 11px; border-radius:100px; text-transform:uppercase;
+}
+.badge.okm{ background:var(--ink); color:#fff; }
+.badge.res{ background:var(--surface); color:var(--ink-soft); border:1px solid var(--line-strong); }
+.car-info{ padding:20px 22px 22px; display:flex; flex-direction:column; gap:3px; }
+.car-name{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; color:var(--ink); }
+.car-ver{ font-size:13px; color:var(--muted); margin-bottom:2px; }
+.car-meta{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--muted); letter-spacing:.02em;
+  margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);
+}
+.car-price{ font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:21px; color:var(--ink); margin:6px 0 14px; }
+.ml-btn{
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:12.5px; font-weight:700; color:var(--accent);
+  padding-top:2px; transition:color .2s;
+}
+.ml-btn:hover{ color:var(--accent-dark); }
+.res-btn{ font-size:12px; font-weight:700; color:var(--muted); letter-spacing:.02em; }
+.cars-status{ grid-column:1/-1; text-align:center; padding:3rem 1rem; color:var(--muted); font-size:14px; }
+
+/* ML BANNER */
+.ml-banner{
+  display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+  background:var(--ink); color:#fff; border-radius:var(--radius-m); padding:2.25rem 2.5rem;
+}
+.ml-banner h3{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.2rem; margin-bottom:4px; }
+.ml-banner p{ font-size:13px; color:#a7abb2; }
+.ml-banner a{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--accent); color:#fff;
+  padding:12px 22px; border-radius:100px; font-weight:700; font-size:12.5px; letter-spacing:.02em;
+  white-space:nowrap; transition:background .2s;
+}
+.ml-banner a:hover{ background:var(--accent-dark); }
+
+/* NOSOTROS */
+.nos-grid{ display:grid; grid-template-columns:1.05fr 1fr; gap:4.5rem; align-items:start; }
+.nos-quote{
+  font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1.6rem; line-height:1.45;
+  color:var(--ink); border-left:2px solid var(--accent); padding-left:1.5rem; margin-bottom:1.75rem;
+}
+.nos-text{ font-size:14.5px; color:var(--ink-soft); line-height:1.9; }
+.feat{ display:flex; flex-direction:column; }
+.feat-item{ display:flex; gap:1rem; padding:1.35rem 0; border-top:1px solid var(--line); align-items:flex-start; }
+.feat-item:last-child{ border-bottom:1px solid var(--line); }
+.feat-dot{ width:7px; height:7px; border-radius:50%; background:var(--accent); margin-top:9px; flex-shrink:0; }
+.feat-item h4{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:4px; }
+.feat-item p{ font-size:13px; color:var(--muted); line-height:1.7; }
+
+/* CONTACTO */
+.cstrip{ background:var(--ink); padding:clamp(3.5rem,8vw,6rem) clamp(1.25rem,4vw,3rem); text-align:center; }
+.cstrip-eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:#82998c; margin-bottom:.75rem;
+}
+.cstrip h2{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(1.75rem,4vw,2.4rem); color:#fff; margin-bottom:10px; }
+.cstrip-sub{ font-size:13.5px; color:#989ba2; margin-bottom:3rem; }
+.ccards{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  max-width:860px; margin:0 auto; background:#2a2d34; border-radius:var(--radius-m); overflow:hidden;
+}
+.ccard{ background:#191c22; padding:2.25rem 1.75rem; text-align:center; }
+.ccard-icon{ margin-bottom:14px; display:flex; align-items:center; justify-content:center; }
+.ccard h3{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#888c93; margin-bottom:10px; }
+.ccard p{ font-size:13px; color:#b2b5bb; line-height:1.75; margin-bottom:18px; }
+.ccard a{ display:inline-flex; align-items:center; gap:6px; padding:10px 20px; font-size:11.5px; font-weight:700; letter-spacing:.02em; border-radius:100px; }
+.cwa{ background:#25D366; color:#0c1a12; }
+.cig{ background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
+.cem{ color:#fff; border:1px solid #383c44; }
+
+/* FAQ */
+.faq-wrap{ max-width:740px; margin:0 auto; }
+.faq-item{ border-top:1px solid var(--line); padding:1.5rem 0; cursor:pointer; }
+.faq-wrap .faq-item:last-child{ border-bottom:1px solid var(--line); }
+.faq-q{ display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.faq-q span:first-child{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px; color:var(--ink); }
+.faq-icon{ font-family:'Space Grotesk',sans-serif; font-size:19px; color:var(--accent); font-weight:500; flex-shrink:0; }
+.faq-a{ font-size:14px; color:var(--muted); margin-top:14px; line-height:1.85; display:none; max-width:640px; }
+.faq-a.open{ display:block; }
+
+/* FOOTER */
+footer{
+  background:var(--ink); padding:3.5rem 1.5rem 2.5rem;
+  display:flex; flex-direction:column; align-items:center; gap:1.75rem;
+}
+.footer-logo .lb{ font-size:16px; color:#fff; }
+.footer-logo .ll{ width:24px; }
+.footer-logo .ls{ font-size:10px; color:#9a9ea5; }
+.flinks{ display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; }
+.flinks a{ font-size:12px; font-weight:600; color:#93979e; letter-spacing:.01em; transition:color .2s; }
+.flinks a:hover{ color:#fff; }
+.fsocial{ display:flex; gap:12px; align-items:center; }
+.fsocial a{ width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:opacity .2s; }
+.fsocial a:hover{ opacity:.8; }
+.finfo{ display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; }
+.finfo span{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#71757c; }
+.fcopy{ font-size:11px; color:#4c4f56; letter-spacing:.02em; }
+
+.divider{ border:none; border-top:1px solid var(--line); max-width:1200px; margin:0 auto; }
+
+nav.scrolled{ box-shadow:0 1px 0 var(--line); }
+
+@media (max-width:768px){
+  nav{ padding:0 1.25rem; }
+  .nav-links{ display:none; }
+  .hero{ padding:4rem 1.25rem 3rem; }
+  .hero-logo .lb{ letter-spacing:.03em; }
+  .stats{ grid-template-columns:1fr 1fr; row-gap:2rem; }
+  .si:nth-child(odd){ border-left:none; }
+  .si:nth-child(-n+2){ }
+  .sec{ padding:3rem 1.25rem; }
+  .nos-grid{ grid-template-columns:1fr; gap:2.75rem; }
+  .ccards{ grid-template-columns:1fr; }
+  .ml-banner{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .finfo, .flinks{ gap:1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG icons Instagram y WhatsApp -->
+<svg style="display:none">
+  <symbol id="ico-wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+  <symbol id="ico-ig" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+  </symbol>
+</svg>
+
+<nav>
+  <div class="logo nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <span class="lb">BRAMAN</span>
+    <div class="ll"></div>
+    <span class="ls">Autos</span>
+  </div>
+  <div class="nav-links">
+    <a href="#autos">Vehículos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#faq">Dudas frecuentes</a>
+  </div>
+  <div class="nav-actions">
+    <a class="icon-btn" href="https://www.instagram.com/bramanautos_arg/" target="_blank" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
+      <svg width="14" height="14" fill="#fff"><use href="#ico-ig"/></svg>
+    </a>
+    <button class="nav-wa-btn" onclick="window.open('https://wa.me/5491138861797','_blank')">
+      <svg width="14" height="14" fill="#fff"><use href="#ico-wa"/></svg>
+      WhatsApp
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Buenos Aires · desde 1999</p>
+  <div class="logo hero-logo">
+    <span class="lb">BRAMAN</span>
+    <div class="ll"></div>
+    <span class="ls">Autos</span>
+  </div>
+  <p class="hero-claim">Compre con tranquilidad y en confianza.</p>
+  <p class="hero-desc">Vehículos usados y 0&nbsp;km — una empresa formada por gente idónea con más de 25 años de experiencia en el rubro automotor.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('autos').scrollIntoView({behavior:'smooth'})">Ver catálogo</button>
+    <button class="btn-secondary" onclick="window.open('https://wa.me/5491138861797','_blank')">
+      <svg width="15" height="15" fill="currentColor"><use href="#ico-wa"/></svg>
+      Escribinos
+    </button>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="si"><div class="sn">25</div><div class="sl">Años de experiencia</div></div>
+  <div class="si"><div class="sn">22</div><div class="sl">Vehículos en stock</div></div>
+  <div class="si"><div class="sn">🤝</div><div class="sl">Transacciones seguras y garantizadas</div></div>
+  <div class="si"><div class="sn">📄</div><div class="sl">Documentación verificable, lista para transferir</div></div>
+</div>
+
+<section id="autos" class="sec">
+  <p class="sec-eyebrow">Catálogo</p>
+  <h2 class="sec-title">Vehículos disponibles</h2>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filter('todos',this)">Todos</button>
+    <button class="filter-btn" onclick="filter('usado',this)">Usados</button>
+    <button class="filter-btn" onclick="filter('0km',this)">0 km</button>
+    <button class="filter-btn" onclick="filter('reservado',this)">Reservados</button>
+    <button class="filter-btn" onclick="filter('performance',this)">⚡ High Performance</button>
+  </div>
+<div class="cars-grid" id="carsGrid">
+    <p class="cars-status">Cargando catálogo…</p>
+  </div>
+  <div class="ml-banner">
+    <div>
+      <h3>Stock completo en Mercado Libre</h3>
+      <p>Todas nuestras publicaciones actualizadas en tiempo real.</p>
+    </div>
+    <a href="https://www.mercadolibre.com.ar/pampa/profile#menu-user" target="_blank">Ver todas las publicaciones &rarr;</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="nosotros" class="sec nos-bg">
+  <p class="sec-eyebrow">Quiénes somos</p>
+  <h2 class="sec-title">Trayectoria y confianza</h2>
+  <div class="nos-grid">
+    <div>
+      <p class="nos-quote">&ldquo;Compre con tranquilidad y en confianza.&rdquo;</p>
+      <p class="nos-text">Somos BRAMAN Autos, una empresa formada por gente idónea con más de 25 años de experiencia en el rubro automotor. Comercializamos vehículos usados y 0&nbsp;km, y aceptamos permutas.<br><br>Cada operación es transparente, segura y sin sorpresas. Cada vehículo pasa por una revisión técnica y documental completa antes de ser ofrecido.<br><br>Nos encontrás en Av. Triunvirato 3961, Villa Urquiza y Torres al Río, Vicente López.</p>
+    </div>
+    <div class="feat">
+      <div class="feat-item"><span class="feat-dot"></span><div><h4>25 años de experiencia</h4><p>Gente idónea que conoce el mercado automotor en profundidad</p></div></div>
+      <div class="feat-item"><span class="feat-dot"></span><div><h4>Usados y 0 km</h4><p>Amplio stock de vehículos usados y unidades 0 kilómetro</p></div></div>
+      <div class="feat-item"><span class="feat-dot"></span><div><h4>Aceptamos permutas</h4><p>Tomamos tu auto como parte de pago</p></div></div>
+      <div class="feat-item"><span class="feat-dot"></span><div><h4>Documentación verificada</h4><p>Informe de dominio, libre deuda y verificación policial</p></div></div>
+      <div class="feat-item"><span class="feat-dot"></span><div><h4>Garantía mecánica</h4><p>90 días sobre motor y caja en todos los vehículos</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="cstrip">
+  <p class="cstrip-eyebrow">Contacto</p>
+  <h2>¿Encontraste tu próximo vehículo?</h2>
+  <p class="cstrip-sub">Escribinos — respondemos en minutos</p>
+  <div class="ccards">
+    <div class="ccard">
+      <div class="ccard-icon">
+        <svg width="30" height="30" fill="#25D366"><use href="#ico-wa"/></svg>
+      </div>
+      <h3>WhatsApp</h3>
+      <p>+54 9 11 3886-1797<br>Respondemos en minutos</p>
+      <a class="cwa" href="https://wa.me/5491138861797" target="_blank">
+        <svg width="15" height="15" fill="#0c1a12"><use href="#ico-wa"/></svg> Escribir
+      </a>
+    </div>
+    <div class="ccard">
+      <div class="ccard-icon" style="font-size:30px;">&#128140;</div>
+      <h3>Email</h3>
+      <p>info.bramanautos@gmail.com</p>
+      <a class="cem" href="mailto:info.bramanautos@gmail.com">Enviar</a>
+    </div>
+    <div class="ccard">
+      <div class="ccard-icon">
+        <svg width="30" height="30" style="fill:url(#ig-grad)">
+          <defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f09433"/>
+            <stop offset="25%" style="stop-color:#e6683c"/>
+            <stop offset="50%" style="stop-color:#dc2743"/>
+            <stop offset="75%" style="stop-color:#cc2366"/>
+            <stop offset="100%" style="stop-color:#bc1888"/>
+          </linearGradient></defs>
+          <use href="#ico-ig"/>
+        </svg>
+      </div>
+      <h3>Instagram</h3>
+      <p>@bramanautos_arg<br>Seguinos para ver novedades</p>
+      <a class="cig" href="https://www.instagram.com/bramanautos_arg/" target="_blank">
+        <svg width="15" height="15" fill="#fff"><use href="#ico-ig"/></svg> Seguir
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="sec faq-bg">
+  <p class="sec-eyebrow">Dudas frecuentes</p>
+  <h2 class="sec-title">Todo lo que necesitás saber</h2>
+  <div class="faq-wrap">
+    <div class="faq-item" onclick="tog(0)"><div class="faq-q"><span>¿Venden vehículos 0 km?</span><span class="faq-icon" id="fi0">+</span></div><div class="faq-a" id="fa0">Sí, contamos con unidades 0 kilómetro. Consultanos por disponibilidad y modelos.</div></div>
+    <div class="faq-item" onclick="tog(1)"><div class="faq-q"><span>¿Aceptan permutas?</span><span class="faq-icon" id="fi1">+</span></div><div class="faq-a" id="fa1">Sí, tomamos tu auto como parte de pago. Contactanos con los datos de tu vehículo.</div></div>
+    <div class="faq-item" onclick="tog(2)"><div class="faq-q"><span>¿Los autos usados tienen garantía?</span><span class="faq-icon" id="fi2">+</span></div><div class="faq-a" id="fa2">Sí, todos cuentan con garantía mecánica de 90 días sobre motor y caja.</div></div>
+    <div class="faq-item" onclick="tog(3)"><div class="faq-q"><span>¿Se puede financiar?</span><span class="faq-icon" id="fi3">+</span></div><div class="faq-a" id="fa3">Trabajamos con créditos bancarios y financieras. También tarjeta de crédito en cuotas.</div></div>
+    <div class="faq-item" onclick="tog(4)"><div class="faq-q"><span>¿Cómo sé que la documentación está en orden?</span><span class="faq-icon" id="fi4">+</span></div><div class="faq-a" id="fa4">Verificamos informe de dominio, libre deuda y verificación policial antes de publicar cada unidad.</div></div>
+    <div class="faq-item" onclick="tog(5)"><div class="faq-q"><span>¿Dónde están ubicados?</span><span class="faq-icon" id="fi5">+</span></div><div class="faq-a" id="fa5">Av. Triunvirato 3961, Villa Urquiza y Torres al Río, Vicente López. Coordiná tu visita por WhatsApp.</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo footer-logo">
+    <span class="lb">BRAMAN</span>
+    <div class="ll"></div>
+    <span class="ls">Autos</span>
+  </div>
+  <div class="flinks">
+    <a href="#autos">Vehículos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#faq">Dudas frecuentes</a>
+  </div>
+  <div class="fsocial">
+    <a href="https://www.instagram.com/bramanautos_arg/" target="_blank" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;">
+      <svg width="16" height="16" fill="#fff"><use href="#ico-ig"/></svg>
+    </a>
+    <a href="https://wa.me/5491138861797" target="_blank" style="background:#25D366;color:#fff;">
+      <svg width="16" height="16" fill="#fff"><use href="#ico-wa"/></svg>
+    </a>
+  </div>
+  <div class="finfo">
+    <span>+54 9 11 3886-1797</span>
+    <span>info.bramanautos@gmail.com</span>
+    <span>Villa Urquiza · Vicente López</span>
+  </div>
+  <p class="fcopy">&copy; 2025 BRAMAN AUTOS — Buenos Aires</p>
+</footer>
+
+<script>
+function filter(tipo,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.car-card').forEach(c=>{
+    if(tipo==='todos') c.classList.remove('hidden');
+    else c.classList.toggle('hidden',c.dataset.tipo!==tipo);
+  });
+}
+function tog(i){
+  const a=document.getElementById('fa'+i),ic=document.getElementById('fi'+i);
+  const open=a.classList.toggle('open');
+  ic.textContent=open?'\u2212':'+';
+}
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY>8);
+});
+</script>
+
+<script>
+/* -----------------------------------------------------------------
+   Catálogo dinámico: lee cars-data.json (generado automáticamente
+   desde Mercado Libre por el GitHub Action) y arma las tarjetas.
+   ----------------------------------------------------------------- */
+async function cargarCatalogo(){
+  const grid = document.getElementById('carsGrid');
+  try{
+    const res = await fetch('cars-data.json', {cache:'no-store'});
+    if(!res.ok) throw new Error('No se encontró cars-data.json');
+    const autosML = await res.json();
+
+    let autosManual = [];
+    try{
+      const resManual = await fetch('manual-cars.json', {cache:'no-store'});
+      if(resManual.ok) autosManual = await resManual.json();
+    }catch(_e){ /* manual-cars.json es opcional */ }
+
+    const autos = [...autosML, ...autosManual];
+    if(!autos.length){
+      grid.innerHTML = '<p class="cars-status">Todavía no hay vehículos cargados.</p>';
+      return;
+    }
+    grid.innerHTML = autos.map(tarjetaHTML).join('');
+  }catch(err){
+    console.error(err);
+    grid.innerHTML = '<p class="cars-status">No pudimos cargar el catálogo. Probá recargar la página.</p>';
+  }
+  // Deja el filtro "Todos" activo y aplicado sobre las tarjetas recién creadas
+  const primerFiltro = document.querySelector('.filter-btn');
+  if(primerFiltro) filter('todos', primerFiltro);
+}
+
+function tarjetaHTML(a){
+  const esReservado = a.estado === 'reservado';
+  const es0km = a.tipo === '0km';
+  const dataTipo = esReservado ? 'reservado' : a.tipo;
+
+  let badge = '';
+  if(esReservado) badge = '<span class="badge res">Reservado</span>';
+  else if(es0km) badge = '<span class="badge okm">0 km</span>';
+
+  const accion = esReservado
+    ? '<div class="res-btn">🔒 Reservado</div>'
+    : (a.link ? `<a class="ml-btn" href="${a.link}" target="_blank">Ver en Mercado Libre &rarr;</a>` : '');
+
+  return `<div class="car-card" data-tipo="${dataTipo}">
+      <div class="car-thumb">${badge}<img src="${a.imagen}" alt="${escapeHTML(a.alt || a.nombre)}" loading="lazy"></div>
+      <div class="car-info">
+        <div class="car-name">${escapeHTML(a.nombre)}</div>
+        <div class="car-ver">${escapeHTML(a.version || '')}</div>
+        <div class="car-meta">${escapeHTML(a.meta || '')}</div>
+        <div class="car-price">${escapeHTML(a.precio || 'Consultar')}</div>
+        ${accion}
+      </div>
+    </div>`;
+}
+
+function escapeHTML(s){
+  return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+cargarCatalogo();
+</script>
+</body>
+</html>
