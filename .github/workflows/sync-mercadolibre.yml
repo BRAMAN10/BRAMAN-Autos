@@ -1,0 +1,38 @@
+name: Sincronizar catálogo con Mercado Libre
+
+on:
+  schedule:
+    # Corre cada 4 horas. El horario está en UTC (Argentina es UTC-3).
+    - cron: "0 */4 * * *"
+  workflow_dispatch: {} # permite ejecutarlo a mano desde la pestaña "Actions"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ejecutar sincronización con Mercado Libre
+        env:
+          ML_CLIENT_ID: ${{ secrets.ML_CLIENT_ID }}
+          ML_CLIENT_SECRET: ${{ secrets.ML_CLIENT_SECRET }}
+          ML_REFRESH_TOKEN: ${{ secrets.ML_REFRESH_TOKEN }}
+          ML_SELLER_ID: ${{ secrets.ML_SELLER_ID }}
+        run: node scripts/sync-ml.js
+
+      - name: Publicar cambios en el catálogo
+        run: |
+          git config user.name "braman-bot"
+          git config user.email "actions@github.com"
+          git add cars-data.json data/cars-state.json
+          git diff --quiet --cached || git commit -m "Actualizar catálogo desde Mercado Libre"
+          git push
