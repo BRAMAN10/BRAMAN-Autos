@@ -329,7 +329,7 @@ footer { background:#0a0a0a; padding:4rem 3rem; display:flex; flex-direction:col
 
 <div class="stats">
   <div class="si"><div class="sn">25</div><div class="sl">A&ntilde;os nos avalan</div></div>
-  <div class="si"><div class="sn">19</div><div class="sl">Veh&iacute;culos en stock</div></div>
+  <div class="si"><div class="sn" id="stockCount">19</div><div class="sl">Veh&iacute;culos en stock</div></div>
   <div class="si"><div class="sn" style="font-size:36px;filter:grayscale(100%);color:#777;">🤝</div><div class="sl">Transacciones seguras y garantizadas</div></div>
   <div class="si"><div class="sn" style="font-size:36px;filter:grayscale(100%);color:#777;">📄</div><div class="sl">Documentaci&oacute;n completa verificable, lista para transferir o patentar r&aacute;pidamente</div></div>
 </div>
@@ -494,6 +494,11 @@ async function cargarCatalogo(){
       return;
     }
     grid.innerHTML = autos.map(tarjetaHTML).join('');
+    const stockEl = document.getElementById('stockCount');
+    if(stockEl){
+      const enStock = autos.filter(a => a.estado !== 'reservado').length;
+      stockEl.textContent = enStock;
+    }
   }catch(err){
     console.error(err);
     grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:3rem 1rem;color:#999;">No pudimos cargar el catálogo. Probá recargar la página.</p>';
