@@ -1,39 +1,15 @@
 [
   {
-    "id": "MLA1820402901",
+    "id": "MLA2065578547",
     "tipo": "usado",
     "estado": "activo",
-    "nombre": "Geely Ex5",
-    "version": "0.0 Pro (60,22kwh) 430km",
-    "meta": "2026 · 1.000 km",
-    "precio": "USD 34.800",
-    "imagen": "https://http2.mlstatic.com/D_903067-MLA111727104664_062026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-1820402901-geely-ex5-00-pro-6022kwh-430km-_JM",
-    "actualizado": "2026-09-11T03:24:22.879Z"
-  },
-  {
-    "id": "MLA1981938875",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Ford Mustang",
-    "version": "5.0 V8 Dark Horse",
-    "meta": "2026 · 1.500 km",
-    "precio": "USD 97.900",
-    "imagen": "https://http2.mlstatic.com/D_625607-MLA116761687569_082026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-1981938875-ford-mustang-50-v8-dark-horse-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA1917448221",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Honda Hr-v",
-    "version": "1.8 Ex-l 2wd Cvt",
-    "meta": "2020 · 70.500 km",
-    "precio": "USD 21.900",
-    "imagen": "https://http2.mlstatic.com/D_685343-MLA113735070502_072026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-1917448221-honda-hr-v-18-ex-l-2wd-cvt-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
+    "nombre": "Volkswagen Gol",
+    "version": "Trend 1.6 Trendline 101cv",
+    "meta": "2020 · 83.300 km",
+    "precio": "USD 11.300",
+    "imagen": "https://http2.mlstatic.com/D_955424-MLA115794193302_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-2065578547-volkswagen-gol-trend-16-trendline-101cv-_JM",
+    "actualizado": "2026-09-11T08:39:45.999Z"
   },
   {
     "id": "MLA1917411561",
@@ -45,151 +21,7 @@
     "precio": "USD 14.700",
     "imagen": "https://http2.mlstatic.com/D_979354-MLA115027799047_072026-O.webp",
     "link": "https://auto.mercadolibre.com.ar/MLA-1917411561-renault-nuevo-sandero-stepway-sl-volcom-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA3915398524",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Volkswagen Amarok",
-    "version": "3.0 V6 Extreme",
-    "meta": "2021 · 89.200 km",
-    "precio": "USD 31.900",
-    "imagen": "https://http2.mlstatic.com/D_616291-MLA115755156602_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3915398524-volkswagen-amarok-30-v6-extreme-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA1977357005",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Nissan Kicks",
-    "version": "1.6 Advance Cvt",
-    "meta": "2021 · 42.700 km",
-    "precio": "USD 19.500",
-    "imagen": "https://http2.mlstatic.com/D_769516-MLA115981721559_082026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-1977357005-nissan-kicks-16-advance-cvt-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA2065578547",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Volkswagen Gol",
-    "version": "Trend 1.6 Trendline 101cv",
-    "meta": "2020 · 83.300 km",
-    "precio": "USD 11.300",
-    "imagen": "https://http2.mlstatic.com/D_955424-MLA115794193302_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-2065578547-volkswagen-gol-trend-16-trendline-101cv-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA3706502452",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Suzuki Baleno",
-    "version": "1.4 Glx 4at",
-    "meta": "2019 · 57.500 km",
-    "precio": "USD 13.700",
-    "imagen": "https://http2.mlstatic.com/D_758737-MLA115441659223_082026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3706502452-suzuki-baleno-14-glx-4at-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA3917727756",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Nissan Kicks",
-    "version": "1.6 Exclusive Cvt",
-    "meta": "2023 · 52.200 km",
-    "precio": "USD 22.900",
-    "imagen": "https://http2.mlstatic.com/D_861623-MLA115794589328_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3917727756-nissan-kicks-16-exclusive-cvt-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA3618428572",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Honda Fit",
-    "version": "1.5 Ex-l At 120cv",
-    "meta": "2015 · 145.700 km",
-    "precio": "USD 13.900",
-    "imagen": "https://http2.mlstatic.com/D_887815-MLA113408733762_072026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3618428572-honda-fit-15-ex-l-at-120cv-_JM",
-    "actualizado": "2026-09-11T03:24:22.880Z"
-  },
-  {
-    "id": "MLA2013471855",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Land Rover",
-    "version": "Range Rover Evoque Si4 2.0 4x4 At",
-    "meta": "2017 · 91.900 km",
-    "precio": "USD 33.900",
-    "imagen": "https://http2.mlstatic.com/D_861025-MLA116761576289_082026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-2013471855-land-rover-range-rover-evoque-si4-20-4x4-at-_JM",
-    "actualizado": "2026-09-11T03:24:22.881Z"
-  },
-  {
-    "id": "MLA3472242550",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Lexus Is",
-    "version": "2.5 300h Luxury",
-    "meta": "2023 · 18.437 km",
-    "precio": "USD 60.000",
-    "imagen": "https://http2.mlstatic.com/D_603874-MLA107679740659_022026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3472242550-lexus-is-25-300h-luxury-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
-  },
-  {
-    "id": "MLA3917686582",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Toyota Rav4",
-    "version": "2.5 4x4 6at",
-    "meta": "2013 · 137.500 km",
-    "precio": "USD 21.500",
-    "imagen": "https://http2.mlstatic.com/D_750951-MLA117250703721_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3917686582-toyota-rav4-25-4x4-6at-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
-  },
-  {
-    "id": "MLA3917686670",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Kia Sportage",
-    "version": "2.0 Ex At 154cv 4x2",
-    "meta": "2019 · 62.200 km",
-    "precio": "USD 22.900",
-    "imagen": "https://http2.mlstatic.com/D_963509-MLA117251583835_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3917686670-kia-sportage-20-ex-at-154cv-4x2-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
-  },
-  {
-    "id": "MLA2038729619",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Hyundai Tucson",
-    "version": "2.0 Style 2wd At",
-    "meta": "2018 · 62.700 km",
-    "precio": "USD 19.500",
-    "imagen": "https://http2.mlstatic.com/D_699802-MLA117082628621_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-2038729619-hyundai-tucson-20-style-2wd-at-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
-  },
-  {
-    "id": "MLA3917727496",
-    "tipo": "usado",
-    "estado": "activo",
-    "nombre": "Volkswagen Polo",
-    "version": "1.6 Comfortline",
-    "meta": "2016 · 95.000 km",
-    "precio": "USD 11.900",
-    "imagen": "https://http2.mlstatic.com/D_773447-MLA115794003324_092026-O.webp",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3917727496-volkswagen-polo-16-comfortline-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
+    "actualizado": "2026-09-11T08:39:45.999Z"
   },
   {
     "id": "MLA2018887343",
@@ -201,7 +33,7 @@
     "precio": "USD 34.300",
     "imagen": "https://http2.mlstatic.com/D_806666-MLA116490411027_082026-O.webp",
     "link": "https://auto.mercadolibre.com.ar/MLA-2018887343-jeep-commander-20-td380-at9-4x4-7pas-overland-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
+    "actualizado": "2026-09-11T08:39:45.999Z"
   },
   {
     "id": "MLA3845642964",
@@ -213,7 +45,31 @@
     "precio": "USD 25.900",
     "imagen": "https://http2.mlstatic.com/D_767853-MLA116583239543_082026-O.webp",
     "link": "https://auto.mercadolibre.com.ar/MLA-3845642964-toyota-rav4-20-vx-cvt-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
+    "actualizado": "2026-09-11T08:39:45.999Z"
+  },
+  {
+    "id": "MLA2038729619",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Hyundai Tucson",
+    "version": "2.0 Style 2wd At",
+    "meta": "2018 · 62.700 km",
+    "precio": "USD 19.500",
+    "imagen": "https://http2.mlstatic.com/D_699802-MLA117082628621_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-2038729619-hyundai-tucson-20-style-2wd-at-_JM",
+    "actualizado": "2026-09-11T08:39:45.999Z"
+  },
+  {
+    "id": "MLA3917686582",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Toyota Rav4",
+    "version": "2.5 4x4 6at",
+    "meta": "2013 · 137.500 km",
+    "precio": "USD 21.500",
+    "imagen": "https://http2.mlstatic.com/D_750951-MLA117250703721_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3917686582-toyota-rav4-25-4x4-6at-_JM",
+    "actualizado": "2026-09-11T08:39:45.999Z"
   },
   {
     "id": "MLA2058298881",
@@ -225,7 +81,115 @@
     "precio": "$19.500.000",
     "imagen": "https://http2.mlstatic.com/D_830310-MLA117329575387_092026-O.jpg",
     "link": "https://auto.mercadolibre.com.ar/MLA-2058298881-nissan-march-16-advance-media-tech-107cv-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
+    "actualizado": "2026-09-11T08:39:45.999Z"
+  },
+  {
+    "id": "MLA2013471855",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Land Rover",
+    "version": "Range Rover Evoque Si4 2.0 4x4 At",
+    "meta": "2017 · 91.900 km",
+    "precio": "USD 33.900",
+    "imagen": "https://http2.mlstatic.com/D_861025-MLA116761576289_082026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-2013471855-land-rover-range-rover-evoque-si4-20-4x4-at-_JM",
+    "actualizado": "2026-09-11T08:39:45.999Z"
+  },
+  {
+    "id": "MLA3706502452",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Suzuki Baleno",
+    "version": "1.4 Glx 4at",
+    "meta": "2019 · 57.500 km",
+    "precio": "USD 13.700",
+    "imagen": "https://http2.mlstatic.com/D_758737-MLA115441659223_082026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3706502452-suzuki-baleno-14-glx-4at-_JM",
+    "actualizado": "2026-09-11T08:39:45.999Z"
+  },
+  {
+    "id": "MLA1820402901",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Geely Ex5",
+    "version": "0.0 Pro (60,22kwh) 430km",
+    "meta": "2026 · 1.000 km",
+    "precio": "USD 34.800",
+    "imagen": "https://http2.mlstatic.com/D_903067-MLA111727104664_062026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-1820402901-geely-ex5-00-pro-6022kwh-430km-_JM",
+    "actualizado": "2026-09-11T08:39:46.000Z"
+  },
+  {
+    "id": "MLA1917448221",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Honda Hr-v",
+    "version": "1.8 Ex-l 2wd Cvt",
+    "meta": "2020 · 70.500 km",
+    "precio": "USD 21.900",
+    "imagen": "https://http2.mlstatic.com/D_685343-MLA113735070502_072026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-1917448221-honda-hr-v-18-ex-l-2wd-cvt-_JM",
+    "actualizado": "2026-09-11T08:39:46.000Z"
+  },
+  {
+    "id": "MLA3472242550",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Lexus Is",
+    "version": "2.5 300h Luxury",
+    "meta": "2023 · 18.437 km",
+    "precio": "USD 60.000",
+    "imagen": "https://http2.mlstatic.com/D_603874-MLA107679740659_022026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3472242550-lexus-is-25-300h-luxury-_JM",
+    "actualizado": "2026-09-11T08:39:46.000Z"
+  },
+  {
+    "id": "MLA3917727496",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Volkswagen Polo",
+    "version": "1.6 Comfortline",
+    "meta": "2016 · 95.000 km",
+    "precio": "USD 11.900",
+    "imagen": "https://http2.mlstatic.com/D_773447-MLA115794003324_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3917727496-volkswagen-polo-16-comfortline-_JM",
+    "actualizado": "2026-09-11T08:39:46.000Z"
+  },
+  {
+    "id": "MLA3915398524",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Volkswagen Amarok",
+    "version": "3.0 V6 Extreme",
+    "meta": "2021 · 89.200 km",
+    "precio": "USD 31.900",
+    "imagen": "https://http2.mlstatic.com/D_616291-MLA115755156602_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3915398524-volkswagen-amarok-30-v6-extreme-_JM",
+    "actualizado": "2026-09-11T08:39:46.000Z"
+  },
+  {
+    "id": "MLA3917686670",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Kia Sportage",
+    "version": "2.0 Ex At 154cv 4x2",
+    "meta": "2019 · 62.200 km",
+    "precio": "USD 22.900",
+    "imagen": "https://http2.mlstatic.com/D_963509-MLA117251583835_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3917686670-kia-sportage-20-ex-at-154cv-4x2-_JM",
+    "actualizado": "2026-09-11T08:39:46.000Z"
+  },
+  {
+    "id": "MLA3618428572",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Honda Fit",
+    "version": "1.5 Ex-l At 120cv",
+    "meta": "2015 · 145.700 km",
+    "precio": "USD 13.900",
+    "imagen": "https://http2.mlstatic.com/D_887815-MLA113408733762_072026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3618428572-honda-fit-15-ex-l-at-120cv-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
   },
   {
     "id": "MLA2058313439",
@@ -237,43 +201,43 @@
     "precio": "USD 29.900",
     "imagen": "https://http2.mlstatic.com/D_781733-MLA115864947732_092026-O.webp",
     "link": "https://auto.mercadolibre.com.ar/MLA-2058313439-audi-a3-20-tfsi-sedan-190cv-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
+    "actualizado": "2026-09-11T08:39:46.001Z"
   },
   {
-    "id": "MLA3353545950",
-    "tipo": "0km",
-    "estado": "activo",
-    "nombre": "Geely Ex5",
-    "version": "0.0 Pro (60,22kwh) 430km",
-    "meta": "2026 · 0 km",
-    "precio": "USD 24.360",
-    "imagen": "https://http2.mlstatic.com/D_817349-MLA111994916377_052026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-3353545950-geely-ex5-00-pro-6022kwh-430km-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
-  },
-  {
-    "id": "MLA1820428901",
-    "tipo": "0km",
-    "estado": "activo",
-    "nombre": "Geely Ex5",
-    "version": "0.0 Pro (60,22kwh) 430km",
-    "meta": "2026 · 0 km",
-    "precio": "USD 34.800",
-    "imagen": "https://http2.mlstatic.com/D_987903-MLA112816412399_062026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-1820428901-geely-ex5-00-pro-6022kwh-430km-_JM",
-    "actualizado": "2026-09-11T03:24:22.882Z"
-  },
-  {
-    "id": "MLA2065553487",
+    "id": "MLA1977357005",
     "tipo": "usado",
     "estado": "activo",
-    "nombre": "Volkswagen Suran",
-    "version": "1.6 Highline Msi 110cv",
-    "meta": "2017 · 104.000 km",
-    "precio": "USD 11.100",
-    "imagen": "https://http2.mlstatic.com/D_786783-MLA117251585955_092026-O.jpg",
-    "link": "https://auto.mercadolibre.com.ar/MLA-2065553487-volkswagen-suran-16-highline-msi-110cv-_JM",
-    "actualizado": "2026-09-11T03:24:22.883Z"
+    "nombre": "Nissan Kicks",
+    "version": "1.6 Advance Cvt",
+    "meta": "2021 · 42.700 km",
+    "precio": "USD 19.500",
+    "imagen": "https://http2.mlstatic.com/D_769516-MLA115981721559_082026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-1977357005-nissan-kicks-16-advance-cvt-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
+  },
+  {
+    "id": "MLA3917727756",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Nissan Kicks",
+    "version": "1.6 Exclusive Cvt",
+    "meta": "2023 · 52.200 km",
+    "precio": "USD 22.900",
+    "imagen": "https://http2.mlstatic.com/D_861623-MLA115794589328_092026-O.webp",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3917727756-nissan-kicks-16-exclusive-cvt-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
+  },
+  {
+    "id": "MLA1981938875",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Ford Mustang",
+    "version": "5.0 V8 Dark Horse",
+    "meta": "2026 · 1.500 km",
+    "precio": "USD 97.900",
+    "imagen": "https://http2.mlstatic.com/D_625607-MLA116761687569_082026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-1981938875-ford-mustang-50-v8-dark-horse-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
   },
   {
     "id": "MLA3535265640",
@@ -285,7 +249,43 @@
     "precio": "USD 24.000",
     "imagen": "https://http2.mlstatic.com/D_950475-MLA113192015234_072026-O.webp",
     "link": "https://auto.mercadolibre.com.ar/MLA-3535265640-byd-dolphin-mini-00-gs-4as-432kwh-_JM",
-    "actualizado": "2026-09-11T03:24:22.883Z"
+    "actualizado": "2026-09-11T08:39:46.001Z"
+  },
+  {
+    "id": "MLA3353545950",
+    "tipo": "0km",
+    "estado": "activo",
+    "nombre": "Geely Ex5",
+    "version": "0.0 Pro (60,22kwh) 430km",
+    "meta": "2026 · 0 km",
+    "precio": "USD 24.360",
+    "imagen": "https://http2.mlstatic.com/D_817349-MLA111994916377_052026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-3353545950-geely-ex5-00-pro-6022kwh-430km-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
+  },
+  {
+    "id": "MLA2065553487",
+    "tipo": "usado",
+    "estado": "activo",
+    "nombre": "Volkswagen Suran",
+    "version": "1.6 Highline Msi 110cv",
+    "meta": "2017 · 104.000 km",
+    "precio": "USD 11.100",
+    "imagen": "https://http2.mlstatic.com/D_786783-MLA117251585955_092026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-2065553487-volkswagen-suran-16-highline-msi-110cv-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
+  },
+  {
+    "id": "MLA1820428901",
+    "tipo": "0km",
+    "estado": "activo",
+    "nombre": "Geely Ex5",
+    "version": "0.0 Pro (60,22kwh) 430km",
+    "meta": "2026 · 0 km",
+    "precio": "USD 34.800",
+    "imagen": "https://http2.mlstatic.com/D_987903-MLA112816412399_062026-O.jpg",
+    "link": "https://auto.mercadolibre.com.ar/MLA-1820428901-geely-ex5-00-pro-6022kwh-430km-_JM",
+    "actualizado": "2026-09-11T08:39:46.001Z"
   },
   {
     "id": "MLA3732061616",
