@@ -41,8 +41,44 @@ function requireEnv() {
   }
 }
 
+// -----------------------------------------------------------------------
+// Reintentos: si Mercado Libre falla por algo temporal (corte de red,
+// límite de pedidos, error del servidor), espera un poco y vuelve a
+// probar en vez de cortar toda la sincronización.
+// -----------------------------------------------------------------------
+const INTENTOS = 4; // 1 intento normal + 3 reintentos
+const ESPERAS_SEG = [10, 30, 60]; // espera antes de cada reintento
+const CODIGOS_TEMPORALES = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function fetchConReintentos(url, opciones = {}, { reintentarCodigos = CODIGOS_TEMPORALES } = {}) {
+  for (let intento = 1; ; intento++) {
+    const ultimo = intento === INTENTOS;
+    let motivo;
+    let espera = ESPERAS_SEG[intento - 1];
+    try {
+      const res = await fetch(url, { ...opciones, signal: AbortSignal.timeout(30000) });
+      if (res.ok || ultimo || !reintentarCodigos.has(res.status)) return res;
+      motivo = `HTTP ${res.status}`;
+      const retryAfter = Number(res.headers.get("retry-after"));
+      if (retryAfter > 0) espera = Math.min(retryAfter, 120);
+    } catch (err) {
+      // corte de red o timeout
+      if (ultimo) throw err;
+      motivo = err.message;
+    }
+    console.warn(
+      `  Mercado Libre respondió con error (${motivo}). Reintento ${intento}/${INTENTOS - 1} en ${espera} s...`
+    );
+    await dormir(espera * 1000);
+  }
+}
+
 async function getAccessToken() {
-  const res = await fetch("https://api.mercadolibre.com/oauth/token", {
+  // Para el token solo se reintentan errores del servidor: un 400/401
+  // (token vencido o revocado) no se arregla reintentando.
+  const res = await fetchConReintentos("https://api.mercadolibre.com/oauth/token", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
@@ -51,17 +87,14 @@ async function getAccessToken() {
       client_secret: ML_CLIENT_SECRET,
       refresh_token: ML_REFRESH_TOKEN,
     }),
-  });
+  }, { reintentarCodigos: new Set([429, 500, 502, 503, 504]) });
   if (!res.ok) {
     throw new Error("No se pudo renovar el token de Mercado Libre: " + (await res.text()));
   }
   const data = await res.json();
   if (data.refresh_token && data.refresh_token !== ML_REFRESH_TOKEN) {
-    console.warn(
-      "\n⚠️  Mercado Libre entregó un refresh_token nuevo. Actualizá el secret ML_REFRESH_TOKEN en GitHub con este valor:\n" +
-        data.refresh_token +
-        "\n"
-    );
+    // No se imprime el valor: los logs de un repositorio público los puede ver cualquiera.
+    console.log("  (Mercado Libre informó un refresh_token nuevo; se sigue usando el guardado.)");
   }
   return data.access_token;
 }
@@ -72,7 +105,7 @@ async function getActiveItemIds(token) {
   const limit = 50;
   while (true) {
     const url = `https://api.mercadolibre.com/users/${ML_SELLER_ID}/items/search?status=active&limit=${limit}&offset=${offset}`;
-    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+    const res = await fetchConReintentos(url, { headers: { Authorization: `Bearer ${token}` } });
     if (!res.ok) throw new Error("Error consultando publicaciones activas: " + (await res.text()));
     const data = await res.json();
     ids.push(...data.results);
@@ -89,15 +122,25 @@ function chunk(arr, size) {
 }
 
 async function getItemsDetail(token, ids) {
+  // Mercado Libre dejó de permitir a esta app consultar varios autos juntos
+  // (/items?ids=...), así que se consulta cada publicación por separado.
   const items = [];
-  for (const grupo of chunk(ids, 20)) {
-    const url = `https://api.mercadolibre.com/items?ids=${grupo.join(",")}&attributes=id,title,price,currency_id,thumbnail,pictures,permalink,attributes,condition`;
-    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
-    if (!res.ok) throw new Error("Error consultando detalle de publicaciones: " + (await res.text()));
-    const data = await res.json();
-    for (const row of data) {
-      if (row.code === 200) items.push(row.body);
+  const errores = [];
+  for (const id of ids) {
+    const url = `https://api.mercadolibre.com/items/${id}`;
+    const res = await fetchConReintentos(url, { headers: { Authorization: `Bearer ${token}` } });
+    if (res.ok) {
+      items.push(await res.json());
+    } else {
+      errores.push(`${id}: ${(await res.text()).slice(0, 200)}`);
     }
+    await dormir(150); // pausa corta para no saturar a Mercado Libre
+  }
+  if (errores.length) {
+    console.warn(`  No se pudo leer el detalle de ${errores.length} publicación(es):\n   ` + errores.join("\n   "));
+  }
+  if (ids.length && !items.length) {
+    throw new Error("No se pudo leer ninguna publicación. Primer error: " + errores[0]);
   }
   return items;
 }
